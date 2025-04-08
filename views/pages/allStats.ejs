@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<main class="main" id="allStatsMain">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+            <% data.forEach(item => { %>
+                <div class="col">
+                    <div class="card h-100">
+                        <!-- take each property and make p tag with stats -->
+                        <% for (const prop in item) { %>
+                            <% if (prop != 'id') { %>
+                                <% if (prop == 'Name' || prop == 'Player') { %>
+                                    <h2 class="card-title"><%= item[prop] %></h2>
+                                <% } else { %> 
+                                    <p class="card-text">
+                                        <%= prop %>: <%= item[prop] %>
+                                    </p>   
+                                <% } %>
+                            <%} %>
+                        <% } %>
+                    </div>
+                </div>
+            
+            <% }) %>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>
