@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<main class="main" id="statsSingleMain" >
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h2 class="single-heading"><%= name %></h2>
+                <img src="https://placehold.co/250x450" alt="placeholder img" class="img-fluid image" />
+                
+            </div>
+            <div class="col-6">
+                <ul class="stats-list list-group">
+                    <% for (const prop in data) { %>
+                        <% if (prop != 'id') { %>
+                            <li class="list-group-item">
+                                <%= prop %>: <%= data[prop] %>
+                            </li>
+                        <% } %>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>

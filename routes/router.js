@@ -4,7 +4,7 @@ const router = express.Router()
 router.use(express.static('public'))
 
 router.use('/batting', require('./api/battingRoutes.js'))
-// router.use('/pitching', require('./api/pitchingRoutes.js'))
+router.use('/pitching', require('./api/pitchingRoutes.js'))
 
 // home 
 router.get('/', (req, res)=> {

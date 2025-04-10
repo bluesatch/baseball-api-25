@@ -2,22 +2,28 @@
 
 <main class="main" id="allStatsMain">
     <div class="container">
+        <p class="bonus-text fst-italic my-1">hall of fame +</p>
         <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
             <% data.forEach(item => { %>
                 <div class="col">
                     <div class="card h-100">
                         <!-- take each property and make p tag with stats -->
-                        <% for (const prop in item) { %>
-                            <% if (prop != 'id') { %>
-                                <% if (prop == 'Name' || prop == 'Player') { %>
-                                    <h2 class="card-title"><%= item[prop] %></h2>
-                                <% } else { %> 
-                                    <p class="card-text">
-                                        <%= prop %>: <%= item[prop] %>
-                                    </p>   
-                                <% } %>
-                            <%} %>
-                        <% } %>
+                        <% const player = item.Name || item.Player %>
+                        <h2 class="card-title">
+                            <a href="/<%= position %>/<%= stats %>/<%= item.id %>" class="player-link">
+                                <%= player %>
+                            </a>
+                        </h2>
+                        <ul class="list-group list-group-flush">
+                            <% for (const prop in item) { %>
+                                <% if (prop != 'id') { %>
+                                    <% if (prop != 'Name' || prop != 'Player') { %>
+                                        <!-- <h2 class="card-title"><%= item[prop] %></h2> -->
+                                        <li class="list-group-item"><%= prop %>: <%= item[prop] %></li>
+                                    <% } %> 
+                                <%} %>
+                            <% } %>
+                        </ul>
                     </div>
                 </div>
             
